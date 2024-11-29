@@ -63,21 +63,35 @@
 
 
 
-require('dotenv').config();  // Ensure dotenv is loaded to access the .env file
+// require('dotenv').config();  // Ensure dotenv is loaded to access the .env file
 
-const express = require('express');
-const cors = require('cors');
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);  // Correctly using the API key from .env
+// const express = require('express');
+// const cors = require('cors');
+// const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);  // Correctly using the API key from .env
 
-const app = express();
+// const app = express();
 
-app.use(cors());
-app.use(express.json());
+// app.use(cors());
+// app.use(express.json());
 
-// Define your routes here
-app.use('/api', require('./src/routes/stripe'));
+// // Define your routes here
+// app.use('/api', require('./src/routes/stripe'));
 
-const PORT = process.env.PORT || 5000;
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => {
+//   console.log(`Server is running on http://localhost:${PORT}`);
+// });
+
+
+
+
+require('dotenv').config(); // Ensure dotenv is loaded to access the .env file
+
+const app = require('./app'); // Import the app configuration from app.js
+
+const PORT = process.env.PORT || 5000; // Define the port
+
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
